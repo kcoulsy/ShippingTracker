@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 
 const ConnectedList = ({ articles }) => (
   <ul className="list-group list-group-flush">
     {articles.map(el => (
-      <li key={el.id}>
+
+      <Link to={`/edit/${el.id}`} key={el.id}>
+      <li >
         <ul>
           <li>{el.date}</li>
           <li>{el.name}</li>
@@ -15,6 +18,7 @@ const ConnectedList = ({ articles }) => (
 
         </ul>
       </li>
+      </Link>
     ))}
   </ul>
 );

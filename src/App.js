@@ -3,15 +3,16 @@ import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { addArticle } from './actions/index.js';
-import BigList from './components/BigList';
+import AppRouter from './routers/AppRouter';
 
 window.store = store;
 window.addArticle = addArticle;
 
+
 const App = () => {
   return (
     <Provider store={store}>
-      <BigList />
+      <AppRouter />
     </Provider>
   );
 };
