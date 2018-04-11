@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const ConnectedList = ({ articles }) => (
   <ul className="list-group list-group-flush">
@@ -9,12 +10,18 @@ const ConnectedList = ({ articles }) => (
       <Link to={`/edit/${el.id}`} key={el.id}>
       <li >
         <ul>
-          <li>{el.date}</li>
-          <li>{el.name}</li>
-          <li>{el.contents}</li>
-          <li>{el.shippingCost}</li>
-          <li>{el.tracking}</li>
-          <li>{el.status}</li>
+          <li>{moment(el.date).format('Do MMMM YYYY')}</li>
+          <li>Name: {el.name}</li>
+          <li>Contents: {el.contents.map((content)=>(
+              <ul key={content.index}>
+                <li>{content.name}</li>
+                <li>{content.variation}</li>
+                <li>{content.qty}</li>
+              </ul>
+            ))}</li>
+          <li>DHL Cost: {el.shippingCost}</li>
+          <li>Tracking: {el.tracking}</li>
+          <li>Status: {el.status}</li>
 
         </ul>
       </li>

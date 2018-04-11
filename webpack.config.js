@@ -9,24 +9,35 @@ module.exports = {
       path: path.join(__dirname, 'public'),
       filename: 'bundle.js'
     },
-  module: {
-    rules: [
-      {
+    module: {
+      rules: [{
+        loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
-      }
-    ]
-  },
+        test: /\.s?css$/,
+        use: [
+               MiniCssExtractPlugin.loader,
+               {
+                   loader: 'css-loader',
+                   options: {
+                       sourceMap: true
+                   }
+               },
+               {
+                   loader: 'sass-loader',
+                   options: {
+                       sourceMap: true
+                   }
+               }
+           ]
+      }]
+    },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "styles.css",
       chunkFilename: "[id].css"
     })
   ],

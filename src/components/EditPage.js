@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addArticle, editArticle, removeArticle } from '../actions/index';
 import Form from './Form';
 
@@ -7,7 +8,7 @@ const EditPage = (props) => {
   console.log(props)
   return (
     <div>
-      <h2>{props.article._id}</h2>
+      <Link to="/">Dashboard</Link>
       <Form article={props.article}
         onSubmit={(article)=>{
           //Dispatch the action to edit the expenses//
