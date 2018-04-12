@@ -4,30 +4,42 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const ConnectedList = ({ articles }) => (
-  <ul className="list-group list-group-flush">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Contents</th>
+        <th>DHL Cost</th>
+        <th>Tracking</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
     {articles.map(el => (
 
-      <Link to={`/edit/${el.id}`} key={el.id}>
-      <li >
-        <ul>
-          <li>{moment(el.date).format('Do MMMM YYYY')}</li>
-          <li>Name: {el.name}</li>
-          <li>Contents: {el.contents.map((content)=>(
+
+        <tr>
+          <td>{moment(el.date).format('Do MMMM YYYY')}</td>
+          <td><Link to={`/edit/${el.id}`} key={el.id}>{el.name}</Link></td>
+          <td>{el.contents.map((content)=>(
               <ul key={content.index}>
                 <li>{content.name}</li>
                 <li>{content.variation}</li>
                 <li>{content.qty}</li>
               </ul>
-            ))}</li>
-          <li>DHL Cost: {el.shippingCost}</li>
-          <li>Tracking: {el.tracking}</li>
-          <li>Status: {el.status}</li>
+            ))}</td>
+          <td>{el.shippingCost}</td>
+          <td>{el.tracking}</td>
+          <td>{el.status}</td>
+          </tr>
 
-        </ul>
-      </li>
-      </Link>
+
     ))}
-  </ul>
+    </tbody>
+    </table>
+
 );
 
 const mapStateToProps = state => {
