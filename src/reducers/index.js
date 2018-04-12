@@ -1,14 +1,19 @@
 import { ADD_ARTICLE,
   EDIT_ARTICLE,
-  REMOVE_ARTICLE
+  REMOVE_ARTICLE,
+  SET_USER
 } from '../constants/action-types';
 
 const initialState = {
+  user: {},
   articles: []
 };
 
 const rootReducer = (state = initialState, action) => {
   switch(action.type){
+    case SET_USER:
+      return {...state,
+      user: action.payload};
     case ADD_ARTICLE:
       return {
         ...state,

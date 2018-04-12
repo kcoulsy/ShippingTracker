@@ -1,7 +1,8 @@
 import {
   ADD_ARTICLE,
   EDIT_ARTICLE,
-  REMOVE_ARTICLE
+  REMOVE_ARTICLE,
+  SET_USER
 } from '../constants/action-types';
 
 export const addArticle = article => ({
@@ -17,4 +18,9 @@ export const editArticle = (article) => ({
 export const removeArticle = ({ id } = {}) => ({
   type: REMOVE_ARTICLE,
   id
+})
+
+export const setUser = (user) => ({
+  type: SET_USER,
+  payload: user
 })
