@@ -5,10 +5,14 @@ import store from './store/store';
 import { addArticle } from './actions/index.js';
 import AppRouter from './routers/AppRouter';
 
-import {login, register, loggedIn} from './authentication/authenticate';
+import {login, register, loggedIn, getSession} from './authentication/authenticate';
 
 import LoginPage from './components/LoginPage';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+getSession();
+
+register('kristian@coulsy.co.uk', 'password');
 window.store = store;
 window.addArticle = addArticle;
 

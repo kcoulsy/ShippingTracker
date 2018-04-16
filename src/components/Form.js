@@ -6,7 +6,7 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
-import { addArticle } from "../actions/index";
+import { startAddShipment } from "../actions/index";
 import FormContents from './FormContents';
 
 class ConnectedForm extends React.Component {
@@ -65,7 +65,7 @@ class ConnectedForm extends React.Component {
       tracking,
       status
     }
-    console.log(article);
+    console.log('clicked button', article);
     this.props.onSubmit(article);
     this.setState({
       date: moment(),

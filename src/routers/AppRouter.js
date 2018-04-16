@@ -6,6 +6,7 @@ import LoginPage from '../components/LoginPage';
 import Dashboard from '../components/Dashboard';
 import EditPage from '../components/EditPage';
 import NotFoundPage from '../components/NotFoundPage';
+import AddShipment from '../components/AddShipment';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -18,6 +19,7 @@ const AppRouter = () => (
     <Switch>
       <PublicRoute path="/" component={LoginPage} exact={true}/>
       <PrivateRoute path="/dashboard" component={Dashboard}/>
+      <PrivateRoute path='/add-shipment' component={AddShipment} />
       <Route path='/edit/:id' component={EditPage} />
       <Route component={NotFoundPage} />
     </Switch>

@@ -7,13 +7,19 @@ const {Shipment} = require('../models/shipments');
 //Add a shipment to the database
 const postShipments = (req,res) => {
   var shipment = new Shipment({
+    date: req.body.date,
     name: req.body.name,
+    contents: req.body.contents,
+    shippingCost: req.body.shippingCost,
+    tracking: req.body.tracking,
+    status: req.body.status,
     _creator: req.user._id
   });
 
   shipment.save().then((doc) => {
     res.send(doc);
   }, (e) => {
+    console.log(e);
     res.status(400).send(e);
   })
 }

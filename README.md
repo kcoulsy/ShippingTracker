@@ -1,18 +1,32 @@
-# webpack-4-quickstart
-> Webpack 4 tutorial: All You Need to Know, from 0 Conf to Production Mode
+## Todo
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
+### Login Page
+~~Login when details submitted~~
+~~Add user token to store~~
+~~Add user token to sessionStorage~~
+~~Check sessionStorage for token, put into store~~
+Show errors to the user
 
-## Development
+### Routing
+~~Redirect if user session found in storage~~
+~~Only allow logged in user into private routes~~
+~~Redirect to public routes if not logged in ~~
 
-```bash
-npm i && npm run start
-```
+### Styling
+Add Sidebar to dashboard page
+Add Key Values for Dashboard Table
+Format the contents in the dashboard table
 
-## Meta
+Store actions
+~~Add to Store~~
+~~Remove from Store~~
+~~Update from Store~~
+~~Get all from Store~~
+~~Get one from Store~~
 
-Valentino Gagliardi - [valentinog.com](https://www.valentinog.com) - valentino@valentinog.com
-
-## License
-
-This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+### Database querying
+~~POST Shipment to database~~
+Update default date for POST
+GET Shipments from user, save to store. Make sure store is cleared before putting to store
+DELETE Shipment when remove shipment button is clicked
+UPDATE Shipment when changed

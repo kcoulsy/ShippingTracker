@@ -1,5 +1,5 @@
 import React from 'react';
-import {login} from '../authentication/authenticate';
+import {login, getSession} from '../authentication/authenticate';
 
 export default class LoginPage extends React.Component {
 
@@ -10,6 +10,7 @@ export default class LoginPage extends React.Component {
       password: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    getSession();
   }
   handleChange (e){
     this.setState({[e.target.id]: e.target.value});
