@@ -24,6 +24,7 @@
 * ~~Update from Store~~
 * ~~Get all from Store~~
 * ~~Get one from Store~~
+* Change from 'articles' to 'shipments'
 
 ### Database querying
 * ~~POST Shipment to database~~
@@ -33,3 +34,7 @@
 * UPDATE Shipment when changed
 * Make sure they all use root urls rather than localhost
 
+### Filters
+* Create filter reducers
+* Create filters component
+* Apply to the shown shipments
