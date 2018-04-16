@@ -6,6 +6,7 @@
 * ~~Add user token to sessionStorage~~
 * ~~Check sessionStorage for token, put into store~~
 * Show errors to the user
+* Change urls
 
 ### Routing
 * ~~Redirect if user session found in storage~~
@@ -30,4 +31,5 @@
 * GET Shipments from user, save to store. Make sure store is cleared before putting to store
 * DELETE Shipment when remove shipment button is clicked
 * UPDATE Shipment when changed
+* Make sure they all use root urls rather than localhost
 
