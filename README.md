@@ -7,6 +7,7 @@
 * ~~Check sessionStorage for token, put into store~~
 * Show errors to the user
 * Change urls
+* Remove the server side register 
 
 ### Routing
 * ~~Redirect if user session found in storage~~
@@ -34,7 +35,19 @@
 * UPDATE Shipment when changed
 * Make sure they all use root urls rather than localhost
 
+### Shipment Details
+* Add address to the shipment and check it correctly goes into store and the db
+* Require a name to be set, min 3 chars
+* Validate that tracking is a url or nothing at all
+* Make an achor tag to go to the tracking link
+* make the status a select with options Complete, Booked In, In Transit
+
 ### Filters
 * Create filter reducers
 * Create filters component
 * Apply to the shown shipments
+
+
+
+
+
