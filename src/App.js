@@ -12,6 +12,7 @@ import LoginPage from './components/LoginPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 getSession();
 
+
 register('kristian@coulsy.co.uk', 'password');
 window.store = store;
 window.addArticle = addArticle;

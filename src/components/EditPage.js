@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addArticle, editArticle, removeArticle } from '../actions/index';
+import { addArticle, editArticle, removeArticle, startRemoveShipment } from '../actions/index';
 import Form from './Form';
 
 const EditPage = (props) => {
@@ -18,7 +18,7 @@ const EditPage = (props) => {
         }}
         />
         <button onClick={() => {
-          props.dispatch(removeArticle({id: props.article.id}));
+          startRemoveShipment({id: props.article.id});
           props.history.push('/');
           }}
           >Remove</button>

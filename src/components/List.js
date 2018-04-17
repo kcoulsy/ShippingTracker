@@ -23,13 +23,13 @@ const ConnectedList = ({ articles }) => (
         <tr>
           <td>{moment(el.date).format('Do MMMM YYYY')}</td>
           <td><Link to={`/edit/${el.id}`} key={el.id}>{el.name}</Link></td>
-          <td>{el.contents.map((content)=>(
-              <ul key={content.index}>
-                <li>{content.name}</li>
-                <li>{content.variation}</li>
-                <li>{content.qty}</li>
+          <td>{el.contents ? el.contents.map((content)=>(
+              <ul>
+                <li>name</li>
+                <li>variation</li>
+                <li>qty</li>
               </ul>
-            ))}</td>
+            )) : ''}</td>
           <td>{el.shippingCost}</td>
           <td>{el.tracking}</td>
           <td>{el.status}</td>

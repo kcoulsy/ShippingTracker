@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import store from '../store/store';
 
+import {startGetShipments} from '../actions/index';
 import {setUser} from '../actions/index';
 
 export const register = (email, password)=>{
@@ -38,6 +39,7 @@ export const login = (email, password)=>{
       }))
       sessionStorage.setItem('email', email)
       sessionStorage.setItem('token', response.headers['x-auth']);
+      startGetShipments();
     }
     console.log('done');
   })
@@ -48,9 +50,7 @@ export const getSession = () => {
 
   const url = 'http://localhost:3000/users/me';
   const data = {};
-  const config = {
-
-  };
+  
   axios({
     method: 'get',
     url,
@@ -64,7 +64,8 @@ export const getSession = () => {
         store.dispatch(setUser({
           email,
           token
-        }))
+        }));
+        startGetShipments();
       }
     });
 
