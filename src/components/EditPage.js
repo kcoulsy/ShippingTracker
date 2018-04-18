@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addArticle, editArticle, removeArticle, startRemoveShipment } from '../actions/index';
+import { addArticle, startEditShipment, removeArticle, startRemoveShipment } from '../actions/index';
 import Form from './Form';
 
 const EditPage = (props) => {
@@ -13,7 +13,7 @@ const EditPage = (props) => {
         onSubmit={(article)=>{
           //Dispatch the action to edit the expenses//
           //redirect to the dashboard
-          props.dispatch(editArticle(article));
+          props.dispatch(startEditShipment(article));
           props.history.push('/');
         }}
         />
@@ -29,7 +29,7 @@ const EditPage = (props) => {
 
 const mapStateToProps = (state, props) => {
    return {
-     article: state.articles.find((article) => article.id === props.match.params.id)
+     article: state.articles.find((article) => article._id === props.match.params.id)
    };
 };
 export default connect(mapStateToProps)(EditPage);

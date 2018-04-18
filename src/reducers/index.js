@@ -25,16 +25,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         articles: state.articles.map((article)=>{
-          if(article.id === action.payload.id){
+          if(article._id === action.id){
             return {
               ...article,
-              ...action.payload
+              ...action.updates
             };
           }
           return article;
         })
       }
     case REMOVE_ARTICLE:
+    console.log(action);
       return {
         ...state,
         articles: state.articles.filter((article)=> article._id !== action.id )

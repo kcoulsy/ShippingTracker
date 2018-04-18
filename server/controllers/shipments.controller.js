@@ -82,7 +82,7 @@ const deleteShipment = (req, res) => {
 }
 const updateShipment = (req, res) => {
   var id = req.params.id;
-  var body = _.pick(req.body, ['name','complete']);///update this
+  var body = _.pick(req.body, ['name','date','shippingCost', 'contents', 'tracking', 'status' ]);///update this
 
   if(!ObjectID.isValid(id)){
     return res.status(404).send();

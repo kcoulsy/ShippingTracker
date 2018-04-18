@@ -31,7 +31,7 @@ export const startGetShipments = () => {
           const articles = store.getState().articles;
           console.log('got shipments ', articles);
           articles.forEach((article)=>{
-            store.dispatch(removeArticle(article._id));
+            store.dispatch(removeArticle({id: article._id}));
             console.log('remove id ' + article._id)
           });
 
@@ -52,7 +52,6 @@ export const startAddShipment = (shipment = {}) =>{
   const token = getState().user.token;
   const url = 'http://localhost:3000/shipment';
   const {
-    id = 0,
     date = 0,
     name = '',
     contents = [],
@@ -62,8 +61,8 @@ export const startAddShipment = (shipment = {}) =>{
   } = shipment;
 
   const _creator = 123;
-  const data = {id, date, name, contents, shippingCost, tracking, status, _creator};
-  console.log('data', data);
+  const data = {date, name, contents, shippingCost, tracking, status, _creator};
+
   const config = {
 
   };
@@ -79,15 +78,50 @@ export const startAddShipment = (shipment = {}) =>{
       console.log(response);
       if(response.status === 200){
         console.log('post 200');
-        dispatch(addArticle(data));
+        dispatch(addArticle(response.data));
       }
     });
   }
 }
-export const editArticle = (article) => ({
+
+export const editArticle = (id, updates) => ({
   type: EDIT_ARTICLE,
-  payload: article
-})
+  id,
+  updates
+});
+
+export const startEditShipment = (shipment) =>{
+  return (dispatch, getState) => {
+  const url = 'http://localhost:3000/shipments/' + shipment._id;
+  const token = getState().user.token;
+  const {
+    date = 0,
+    name = '',
+    contents = [],
+    shippingCost = 0,
+    tracking = '',
+    status = ''
+  } = shipment;
+  const data = {date, name, contents, shippingCost, tracking, status};
+  console.log('data', data);
+  return axios({
+    method: 'patch',
+    url,
+    data,
+    headers: {
+      'x-auth': token
+    }
+  }).then((response)=>{
+
+      console.log(response);
+      if(response.status === 200){
+        console.log('edit article');
+        console.log(response);
+        dispatch(editArticle(response.data.shipment._id, response.data.shipment));
+      }
+    });
+  }
+}
 
 export const removeArticle = ({ id } = {}) => ({
   type: REMOVE_ARTICLE,

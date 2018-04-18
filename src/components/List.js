@@ -22,7 +22,7 @@ const ConnectedList = ({ articles }) => (
 
         <tr>
           <td>{moment(el.date).format('Do MMMM YYYY')}</td>
-          <td><Link to={`/edit/${el.id}`} key={el.id}>{el.name}</Link></td>
+          <td><Link to={`/edit/${el._id}`} key={el._id}>{el.name}</Link></td>
           <td>{el.contents ? el.contents.map((content)=>(
               <ul>
                 <li>name</li>

@@ -12,6 +12,7 @@ import FormContents from './FormContents';
 class ConnectedForm extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       date: props.article ? moment(props.article.date) : moment(),
       focused: false,
@@ -55,9 +56,9 @@ class ConnectedForm extends React.Component {
 
     event.preventDefault();
     const { date,name,contents,shippingCost,tracking,status } = this.state;
-    const id = this.props.article ? this.props.article.id : uuidv1();
+    const _id = this.props.article ? this.props.article._id : null;
     const article = {
-      id,
+      _id,
       date: date.valueOf(),
       name,
       contents,
@@ -131,9 +132,9 @@ class ConnectedForm extends React.Component {
                 key={index}
                 onChange={this.handleContentsChange}
                 index={index}
-                name={this.state.contents[index].name}
-                variation={this.state.contents[index].variation}
-                qty={this.state.contents[index].qty}
+                name={this.state.contents[index] ? this.state.contents[index].name : ''}
+                variation={this.state.contents[index] ? this.state.contents[index].variation : ''}
+                qty={this.state.contents[index] ? this.state.contents[index].qty : ''}
                 />)
           })}
           <button onClick={this.handleAddContentsFields}>Add Another</button>
