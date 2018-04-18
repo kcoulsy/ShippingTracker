@@ -37,7 +37,7 @@ const rootReducer = (state = initialState, action) => {
     case REMOVE_ARTICLE:
       return {
         ...state,
-        articles: state.articles.filter(({ id })=> id !== action.id )
+        articles: state.articles.filter((article)=> article._id !== action.id )
       }
     default:
       return state;

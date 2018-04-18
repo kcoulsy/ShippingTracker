@@ -5,7 +5,7 @@ import { addArticle, editArticle, removeArticle, startRemoveShipment } from '../
 import Form from './Form';
 
 const EditPage = (props) => {
-  console.log(props)
+  console.log('props', props)
   return (
     <div>
       <Link to="/">Dashboard</Link>
@@ -18,7 +18,8 @@ const EditPage = (props) => {
         }}
         />
         <button onClick={() => {
-          startRemoveShipment({id: props.article.id});
+          console.log('props.match.params.id', props.match.params.id);
+          startRemoveShipment({id: props.match.params.id});
           props.history.push('/');
           }}
           >Remove</button>

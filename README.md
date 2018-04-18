@@ -26,6 +26,7 @@
 * ~~Get all from Store~~
 * ~~Get one from Store~~
 * Change from 'articles' to 'shipments'
+* Pull database actions out into a new file
 
 ### Database querying
 * ~~POST Shipment to database~~

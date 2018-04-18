@@ -109,6 +109,8 @@ export const startRemoveShipment = ({ id } = {}) => {
       console.log(response);
       if(response.status === 200){
         console.log('delete article');
+        console.log(id);
+        store.dispatch(removeArticle({id}));
       }
     });
 }
