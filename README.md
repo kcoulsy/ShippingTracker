@@ -32,7 +32,7 @@
 * ~~POST Shipment to database~~
 * Update default date for POST
 * ~~GET Shipments from user, save to store. Make sure store is cleared before putting to store~~
-* DELETE Shipment when remove shipment button is clicked
+* ~~DELETE Shipment when remove shipment button is clicked~~
 * UPDATE Shipment when changed
 * Make sure they all use root urls rather than localhost
 
